@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SalesCalculator {
     class Sale {
    //売り上げクラス
-    public string Shopping { get; set; }//Shoppingを呼ぶとセッターゲッターのようになる。プライベートにもできる
+    public string ShopName { get; set; }//Shoppingを呼ぶとセッターゲッターのようになる。プライベートにもできる
     //商品カテゴリー
     public string ProductCatetgory { get; set; }   
     //売上高
