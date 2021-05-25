@@ -5,17 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DistanceConverter {
-   //フィートとメートルの単位変換クラス(静的クラス)
-    
+    //フィートとメートルの単位変換クラス(静的クラス)
+
     /*FeetConberter*/
-   public static class Class1 {
+    public static class Class1 {
+        private const double ratio = 0.3048;
+
+
+
         public static double FromMeter(double meter) {
-            return meter / 0.3048;
+            return meter / ratio;
         }
-        public static double ToMeter(double feet) { 
-        return feet *0.3048;
-    }
-    
-    
+        public static double ToMeter(double feet) {
+            return feet * ratio;
+        }
     }
 }
+
