@@ -5,21 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SalesCalculator {
-    class Sale {
-   //売り上げクラス
-    public string ShopName { get; set; }//Shoppingを呼ぶとセッターゲッターのようになる。プライベートにもできる
-    //商品カテゴリー
-    public string ProductCatetgory { get; set; }   
-    //売上高
-    public int Amount { get; set; }
-        
+    // 売り上げクラス
+    public class Sale {
+        // 店舗名
+        public string ShopName { get; set; }
 
+        // 商品カテゴリ
+        public string ProductCategory { get; set; }
 
-
-
-
-
-
-
+        // 売り上げ高
+        public int Amount { get; set; }
     }
 }
