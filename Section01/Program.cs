@@ -79,6 +79,8 @@ namespace Section01 {
             int count = 0;
             foreach(var name in names) {
                 count += name.Count(c => char.IsLower(c));
+              //  names.ForEach(n => count += n.Count(c => char.IsLower(c)));
+            
             }
             Console.WriteLine(count);
         }
