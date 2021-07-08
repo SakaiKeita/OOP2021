@@ -23,18 +23,38 @@ namespace StopWatch {
 
         private void button1_Click(object sender, EventArgs e) {
             sw.Start();
-            tm.Tick += Tm_Tick;
-
-           
-           
+            tm.Start();
+            lbtimer.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
         }
         private void Form1_Load(object sender, EventArgs e) {
-            lbtimer.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
-            //lbtimer.Text = "00:00:00.00";これでもいい
+            lbtimer.Text = "00:00:00.00";
+         //   lbtimer.Text = "00:00:00.00";これでもいい
         }
         private void Tm_Tick(object sender, EventArgs e) {
-            throw new NotImplementedException();
+            lbtimer.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
+            
+      
+
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
             sw.Stop();
+            tm.Stop();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            sw.Reset();
+            lbtimer.Text = "00:00:00.00";
+        }
+
+       
+
+        private void btlap_Click(object sender, EventArgs e) {
+            //  listBox1.Items.Insert(0,sw.text);
+            
+            listBox1.Items.Insert(0,sw.Elapsed.ToString(@"hh\:mm\:ss\.ff"));
+
         }
     }
 }
