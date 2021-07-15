@@ -51,7 +51,7 @@ namespace StopWatch {
        
 
         private void btlap_Click(object sender, EventArgs e) {
-            //  listBox1.Items.Insert(0,sw.text);
+              listBox1.Items.Insert(0,);
             
             listBox1.Items.Insert(0,sw.Elapsed.ToString(@"hh\:mm\:ss\.ff"));
 
