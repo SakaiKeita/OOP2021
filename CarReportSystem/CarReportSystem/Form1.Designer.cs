@@ -73,6 +73,7 @@ namespace CarReportSystem {
             this.dgvRegistDate.Size = new System.Drawing.Size(667, 191);
             this.dgvRegistDate.TabIndex = 0;
             this.dgvRegistDate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistDate_CellClick);
+            this.dgvRegistDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistDate_CellContentClick);
             // 
             // pbPicture
             // 
