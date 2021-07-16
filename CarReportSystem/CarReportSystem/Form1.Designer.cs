@@ -65,7 +65,7 @@ namespace CarReportSystem {
             // 
             this.dgvRegistDate.AllowUserToAddRows = false;
             this.dgvRegistDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistDate.Location = new System.Drawing.Point(86, 418);
+            this.dgvRegistDate.Location = new System.Drawing.Point(86, 430);
             this.dgvRegistDate.MultiSelect = false;
             this.dgvRegistDate.Name = "dgvRegistDate";
             this.dgvRegistDate.RowTemplate.Height = 21;
@@ -77,7 +77,7 @@ namespace CarReportSystem {
             // pbPicture
             // 
             this.pbPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPicture.Location = new System.Drawing.Point(491, 104);
+            this.pbPicture.Location = new System.Drawing.Point(490, 100);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(276, 245);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -263,15 +263,17 @@ namespace CarReportSystem {
             this.btOpen.TabIndex = 7;
             this.btOpen.Text = "開く...";
             this.btOpen.UseVisualStyleBackColor = true;
+            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(5, 505);
+            this.btSave.Location = new System.Drawing.Point(5, 498);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 7;
             this.btSave.Text = "保存";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // dtpDate
             // 
@@ -282,7 +284,7 @@ namespace CarReportSystem {
             // 
             // btPictureOpen
             // 
-            this.btPictureOpen.Location = new System.Drawing.Point(515, 72);
+            this.btPictureOpen.Location = new System.Drawing.Point(516, 71);
             this.btPictureOpen.Name = "btPictureOpen";
             this.btPictureOpen.Size = new System.Drawing.Size(75, 23);
             this.btPictureOpen.TabIndex = 7;

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -129,16 +131,16 @@ namespace CarReportSystem {
                 case CarReport.MakerGroup.その他:
                     rbOther.Checked = true;
                     break;
-               
+
             }
         }
         //削除
         private void btDataDelete_Click(object sender, EventArgs e) {
             listCarReport.RemoveAt(dgvRegistDate.CurrentRow.Index);
-        
+
         }
 
-        private void btDataCorrect_Click(object sender, EventArgs e) {
+        /*private void btDataCorrect_Click(object sender, EventArgs e) {
             listCarReport[dgvRegistDate.CurrentRow.Index].UpDate(dtpDate.Value, cbAuthor.Text, selectedGroup(),
                 cbCarName.Text, tbPeport.Text, pbPicture.Image);
             dgvRegistDate.Update();
@@ -146,9 +148,50 @@ namespace CarReportSystem {
         
         
         }
-    }
-    }
-}    
-    
+        */
+        private void btDataCorrect_Click(object sender, EventArgs e) {
+            listCarReport[dgvRegistDate.CurrentRow.Index].UpDate(dtpDate.Value,
+                                                                cbAuthor.Text,
+                                                                selectedGroup(),
+                                                                cbCarName.Text,
+                                                                tbPeport.Text,
+                                                                pbPicture.Image
+                                                                );
+            dgvRegistDate.Refresh();//コントロールの強制再描画
 
+        }
+
+
+        private void btSave_Click(object sender, EventArgs e) {
+            if(sfdFileSave.ShowDialog() == DialogResult.OK) {
+                var bf = new BinaryFormatter();
+
+                using(FileStream fs = File.Open(sfdFileSave.FileName, FileMode.Create)) {
+
+                }
+
+
+
+
+            }
+
+
+
+        }
+
+        private void btOpen_Click(object sender, EventArgs e) {
+            if(ofdFileOpen.ShowDialog() == DialogResult.OK) {
+              //バイナリ形式で逆シリアル化
+                var bf = new BinaryFormatter();
+                using(FileStream fs = File.Open(ofdFileOpen.FileName, FileMode.Open, FileAccess.Read)) {
+
+                    //逆シリアル化して読み込む
+                    listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
+                    dgvRegistDate.DataSource = null;
+                    dgvRegistDate.DataSource = listCarReport;
+                }
+            }
+        }
+    }
+}
 
