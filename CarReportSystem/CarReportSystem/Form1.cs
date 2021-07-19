@@ -161,40 +161,58 @@ namespace CarReportSystem {
 
         }
 
-
+        //保存
         private void btSave_Click(object sender, EventArgs e) {
             if(sfdFileSave.ShowDialog() == DialogResult.OK) {
-                var bf = new BinaryFormatter();
-
-                using(FileStream fs = File.Open(sfdFileSave.FileName, FileMode.Create)) {
+                try {
+                    var bf = new BinaryFormatter();
+                    using(FileStream fs = File.Open(sfdFileSave.FileName, FileMode.Create)) {
+                    }
+                }
+                catch(Exception ex) {
+                    MessageBox.Show(ex.Message);
 
                 }
 
-
-
-
             }
-
-
-
         }
 
         private void btOpen_Click(object sender, EventArgs e) {
             if(ofdFileOpen.ShowDialog() == DialogResult.OK) {
-              //バイナリ形式で逆シリアル化
+                try { 
+                //バイナリ形式で逆シリアル化
                 var bf = new BinaryFormatter();
-                using(FileStream fs = File.Open(ofdFileOpen.FileName, FileMode.Open, FileAccess.Read)) {
+                    using(FileStream fs = File.Open(ofdFileOpen.FileName, FileMode.Open, FileAccess.Read)) {
 
-                    //逆シリアル化して読み込む
-                    listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
-                    dgvRegistDate.DataSource = null;
-                    dgvRegistDate.DataSource = listCarReport;
+                        //逆シリアル化して読み込む
+                        listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
+                        dgvRegistDate.DataSource = null;
+                        dgvRegistDate.DataSource = listCarReport;
+                    }
+                    }
+                catch(Exception ex) {
+                    MessageBox.Show(ex.Message);
+
                 }
+                //読み込んだデータを各コンボボックスに登録する
+
+                foreach(var item in listCarReport) {
+                    cbAuthor.Items.Add(item.Auther);
+                    cbCarName.Items.Add(item.CarName);
+                }
+
+                //for(int i = 0; i < dgvRegistDate.RowCount; i++) {
+
+                //    setCbAuthor(dgvRegistDate.Rows[i].Cells[1].Value.ToString());
+                //    setCbCarName(dgvRegistDate.Rows[i].Cells[1].Value.ToString());
+                //}
+
+
             }
         }
 
-        private void dgvRegistDate_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
+        private void fmMain_Load(object sender, EventArgs e) {
+            dgvRegistDate.Columns[5].Visible = false;
         }
     }
 }

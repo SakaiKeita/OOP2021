@@ -73,7 +73,6 @@ namespace CarReportSystem {
             this.dgvRegistDate.Size = new System.Drawing.Size(667, 191);
             this.dgvRegistDate.TabIndex = 0;
             this.dgvRegistDate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistDate_CellClick);
-            this.dgvRegistDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistDate_CellContentClick);
             // 
             // pbPicture
             // 
@@ -392,6 +391,7 @@ namespace CarReportSystem {
             this.MaximizeBox = false;
             this.Name = "fmMain";
             this.Text = "試乗レポート管理システム";
+            this.Load += new System.EventHandler(this.fmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.gbMaker.ResumeLayout(false);
