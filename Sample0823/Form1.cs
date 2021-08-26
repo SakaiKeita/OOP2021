@@ -16,14 +16,14 @@ namespace Sample0823 {
         }
 
         private void Exect_Click(object sender, EventArgs e) {
-            int.Parse( Value.Text);
-            int.Parse(Jyo.Text);
+          int num1=  int.Parse( Value.Text);
+           int num2= int.Parse(Jyo.Text);
             int.Parse(Result.Text);
-            
-            for(int i= 0;i<=Jyo; i++) {
+            Result.Text = Math.Pow(num1, num2).ToString();
+            for(int i= 1;i<=Value; i++) {
             
                 
-                Result = Value *i;
+                Jyo=Jyo*i;
             
             }
         
