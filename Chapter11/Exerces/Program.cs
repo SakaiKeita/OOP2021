@@ -70,18 +70,19 @@ namespace Exerces {
         private static void Exercise1_4(string file) {
             //var xdoc = XDocument.Load("Sample.xml");
             var newfile = "sports.xml";
-            
+            var xdoc = XDocument.Load(file);
             
            
-            var element = new XElement("Sample.xml", new XElement("name", "サッカー", new XElement("kanji", "蹴玉")),
-            new XElement("teammembers", "11"), new XElement("firstplayed", "1948"));
+            var element = new XElement("ballsport", new XElement("name", "サッカー", new XElement("kanji", "蹴玉")),
+            new XElement("teammembers", "11"), new XElement("firstplayed", "1863"));
 
 
-            var xdoc = XDocument.Load("Sample.xml");
+            xdoc.Root.Add(element);//追加先へ追加
 
             xdoc.Save("sports.xml", SaveOptions.DisableFormatting);
 
             xdoc.Root.Add(element);
+            xdoc.Save(newfile);
         }
 }
 }
