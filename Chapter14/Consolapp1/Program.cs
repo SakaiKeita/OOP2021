@@ -21,7 +21,32 @@ namespace Section04 {
             //DownloadString();
             //  DownloadFileAsync();
             //OpenReadSample();
-            var results = GetWeatherReportFromYahoo(4610);
+            int area = 0;
+            Console.WriteLine("地域コード入力");
+            area = int.Parse(Console.ReadLine());
+            if(area == 1) {
+                area = 4210;
+            } else if(area==2){
+                area = 4220;
+            }else if(area == 3) {
+                area = 4110;
+
+            }else if(area==4){
+                area = 4010;
+            } else {
+                Console.WriteLine("直接地域コードを入力");
+                area = int.Parse(Console.ReadLine());
+            }
+
+
+
+
+            var results = GetWeatherReportFromYahoo(area);
+            foreach(var s in results) {
+                Console.WriteLine(s);
+           
+            }
+            Console.ReadLine();
         }
 
         
@@ -74,7 +99,7 @@ namespace Section04 {
                     XDocument xdoc = XDocument.Load(stream);
                     var nodes = xdoc.Root.Descendants("title");
                     foreach(var node in nodes) {
-                        string s = Regex.Replace(node.Value, "【|】", "");
+                        string s = Regex.Replace(node.Value, "【|】-Yahoo", "");
                         yield return s;
                     }
                 
