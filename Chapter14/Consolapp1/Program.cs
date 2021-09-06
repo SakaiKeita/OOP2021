@@ -13,16 +13,41 @@ namespace Section04 {
         static void Main(string[] args) {
 
             new Program();
-        
-        
+
+
         }
-    
+     
+
+
+
+
+
         public Program() {
-            //DownloadString();
-            //  DownloadFileAsync();
-            //OpenReadSample();
-            int area = 0;
-            Console.WriteLine("地域コード入力");
+
+        
+            
+
+        
+
+
+
+
+    
+
+
+           int area = 0;
+            Console.WriteLine("yahoo! 週間天気");
+            Console.WriteLine("");
+            Console.WriteLine("地域コードを入力");
+            Console.WriteLine("1  前橋");
+            Console.WriteLine("2：みなかみ");
+            Console.WriteLine("3　宇都宮");
+            Console.WriteLine("4 水戸");
+            Console.WriteLine("9: その他（直接入力）");
+            Console.WriteLine();
+
+            Console.WriteLine(">");
+
             area = int.Parse(Console.ReadLine());
             if(area == 1) {
                 area = 4210;
@@ -48,7 +73,7 @@ namespace Section04 {
             }
             Console.ReadLine();
         }
-
+          
         
         public void DownloadString() {
             var wc = new WebClient();

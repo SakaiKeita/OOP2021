@@ -214,6 +214,7 @@ namespace CarReportSystem {
         private void fmMain_Load(object sender, EventArgs e) {
             dgvRegistDate.Columns[5].Visible = false;
         }
+
     }
 }
 
