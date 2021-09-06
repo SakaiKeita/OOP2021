@@ -51,11 +51,12 @@ namespace RssReader {
             // 
             // lbTitles
             // 
+            this.lbTitles.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbTitles.FormattingEnabled = true;
-            this.lbTitles.ItemHeight = 15;
-            this.lbTitles.Location = new System.Drawing.Point(51, 70);
+            this.lbTitles.ItemHeight = 17;
+            this.lbTitles.Location = new System.Drawing.Point(51, 71);
             this.lbTitles.Name = "lbTitles";
-            this.lbTitles.Size = new System.Drawing.Size(120, 379);
+            this.lbTitles.Size = new System.Drawing.Size(120, 378);
             this.lbTitles.TabIndex = 2;
             // 
             // wbBrowser

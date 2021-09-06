@@ -28,16 +28,19 @@ namespace RssReader {
 
 
 
-            private void IEnumerable<string> GetWeatherReportFromYahoo(string bturl) {
+            private void  GetWeatherReportFromYahoo(string tburl) {
                 using(var wc = new WebClient()) {
                     wc.Headers.Add("Content-type", "charset=UTF-8");
 
 
 
-                    var stream = wc.OpenRead(bturl.te);
-                XComment xdoc = XDocument.Load(stream);
-                        var nodes = xdoc.Root.Descendants("title");
-                    
+                    var stream = wc.OpenRead(tburl);
+                XDocument xdoc = XDocument.Load(stream);
+                var nodes = xdoc.Root.Descendants("title");
+                foreach(var item in nodes) {
+                    lbTitles.Items.Add(item);
+
+                }  
                 }
 
 
@@ -47,7 +50,6 @@ namespace RssReader {
 
         }
     }
-}
 
             
         
