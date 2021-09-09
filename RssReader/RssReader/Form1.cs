@@ -33,23 +33,31 @@ namespace RssReader {
                     wc.Headers.Add("Content-type", "charset=UTF-8");
 
 
+                List<String> link = new List<string>();
+               
 
                     var stream = wc.OpenRead(tburl);
                 XDocument xdoc = XDocument.Load(stream);
                 var nodes = xdoc.Root.Descendants("title");
+                link.Add(tburl);
                 foreach(var item in nodes) {
                     lbTitles.Items.Add(item);
-
+                    
                 }  
-                }
+              
+            }
 
 
             }
 
+        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
 
-
+          //  List[lbTitles.SelectedIndex];
         }
     }
+
+    }
+
 
             
         
