@@ -54,19 +54,19 @@ namespace RssReader {
             this.lbTitles.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbTitles.FormattingEnabled = true;
             this.lbTitles.ItemHeight = 17;
-            this.lbTitles.Location = new System.Drawing.Point(51, 71);
+            this.lbTitles.Location = new System.Drawing.Point(12, 71);
             this.lbTitles.Name = "lbTitles";
-            this.lbTitles.Size = new System.Drawing.Size(120, 378);
+            this.lbTitles.Size = new System.Drawing.Size(263, 378);
             this.lbTitles.TabIndex = 2;
-            this.lbTitles.SelectedIndexChanged += new System.EventHandler(this.lbTitles_SelectedIndexChanged);
+            this.lbTitles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTitles_MouseDoubleClick);
             // 
             // wbBrowser
             // 
-            this.wbBrowser.Location = new System.Drawing.Point(177, 58);
+            this.wbBrowser.Location = new System.Drawing.Point(402, 58);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(529, 400);
+            this.wbBrowser.Size = new System.Drawing.Size(304, 400);
             this.wbBrowser.TabIndex = 3;
             // 
             // btRead

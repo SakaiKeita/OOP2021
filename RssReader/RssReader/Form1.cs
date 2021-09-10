@@ -14,49 +14,62 @@ using System.Xml.Linq;
 
 namespace RssReader {
     public partial class Form1 : Form {
+        IEnumerable<ItemData> items = null;
+
         public Form1() {
             InitializeComponent();
+
         }
 
         private void btRead_Click(object sender, EventArgs e) {
-            
-                GetWeatherReportFromYahoo(tburl.Text);
+
+            GetWeatherReportFromYahoo(tburl.Text);
 
 
-            }
+        }
 
 
 
 
-            private void  GetWeatherReportFromYahoo(string tburl) {
-                using(var wc = new WebClient()) {
-                    wc.Headers.Add("Content-type", "charset=UTF-8");
+        public void GetWeatherReportFromYahoo(string uri) {
+            using(var wc = new WebClient()) {
+                wc.Headers.Add("Content-type", "charset=UTF-8");
 
 
-                List<String> link = new List<string>();
+
+
+
+                var stream = wc.OpenRead(uri);
+                XDocument xdoc = XDocument.Load(stream);
+                 items = xdoc.Root.Descendants("item").Select(x => new ItemData {
+                    Title = (string)x.Element("title"),
+                    Link = (string)x.Element("link"),
+                    PubDate = (DateTime)x.Element("pubDate"),
+                    Description = (string)x.Element("description")
+
+                });
                
 
-                    var stream = wc.OpenRead(tburl);
-                XDocument xdoc = XDocument.Load(stream);
-                var nodes = xdoc.Root.Descendants("title");
-                link.Add(tburl);
-                foreach(var item in nodes) {
-                    lbTitles.Items.Add(item);
-                    
-                }  
-              
-            }
+                foreach(var item in items) {
+                    lbTitles.Items.Add(item.Title);
 
+
+
+                }
 
             }
 
-        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
 
-          //  List[lbTitles.SelectedIndex];
+
+
+        }
+
+        private void lbTitles_MouseDoubleClick(object sender, MouseEventArgs e) {
+            string link = (items.ToArray())[lbTitles.SelectedIndex].Link;
+            wbBrowser.Url = new Uri(link);
         }
     }
-
-    }
+}
 
 
             
