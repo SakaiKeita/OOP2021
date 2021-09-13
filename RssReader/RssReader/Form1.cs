@@ -65,11 +65,19 @@ namespace RssReader {
         }
 
         private void lbTitles_MouseDoubleClick(object sender, MouseEventArgs e) {
-            string link = (items.ToArray())[lbTitles.SelectedIndex].Link;
-            wbBrowser.Url = new Uri(link);
+        
+            label2.Text += (items.ToArray())[lbTitles.SelectedIndex].Description;
+            label2.Text += (items.ToArray())[lbTitles.SelectedIndex].PubDate;
+            
         }
 
-        
+        private void button1_Click(object sender, EventArgs e) {
+            string link = (items.ToArray())[lbTitles.SelectedIndex].Link;
+            var wbform = new Form2();
+           wbform.webBrowser1.Url  = new Uri(link);
+
+            wbform.Show();
+        }
     }
 }
 
