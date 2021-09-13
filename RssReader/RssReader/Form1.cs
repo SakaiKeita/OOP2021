@@ -68,6 +68,8 @@ namespace RssReader {
             string link = (items.ToArray())[lbTitles.SelectedIndex].Link;
             wbBrowser.Url = new Uri(link);
         }
+
+        
     }
 }
 
