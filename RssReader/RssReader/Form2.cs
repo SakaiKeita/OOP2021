@@ -17,25 +17,28 @@ namespace RssReader {
         }
 
         private void Modorubutton1_Click(object sender, EventArgs e) {
-           if (webBrowser1.CanGoBack true) { webBrowser1.GoBack(); 
+            if(webBrowser1.CanGoBack ) {
+                // ★★★前ページに戻る★★★
+                webBrowser1.GoBack();
             }
-
-          
         }
+
+
+
 
         private void Susumubutton2_Click(object sender, EventArgs e) {
-            if(webBrowser1.CanGoForward  true) {
-
-
+            if(webBrowser1.CanGoForward ) {
+                // ★★★次ページに進む★★★
                 webBrowser1.GoForward();
-
             }
-           
+
+
         }
+
+      
     }
-
-
 }
+
 
 
 

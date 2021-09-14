@@ -31,12 +31,11 @@ namespace RssReader {
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 110);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(800, 450);
+            this.webBrowser1.Size = new System.Drawing.Size(800, 340);
             this.webBrowser1.TabIndex = 0;
             // 
             // Modorubutton1
@@ -47,10 +46,11 @@ namespace RssReader {
             this.Modorubutton1.TabIndex = 1;
             this.Modorubutton1.Text = "戻る";
             this.Modorubutton1.UseVisualStyleBackColor = true;
+            this.Modorubutton1.Click += new System.EventHandler(this.Modorubutton1_Click);
             // 
             // Susumubutton2
             // 
-            this.Susumubutton2.Location = new System.Drawing.Point(193, 51);
+            this.Susumubutton2.Location = new System.Drawing.Point(188, 51);
             this.Susumubutton2.Name = "Susumubutton2";
             this.Susumubutton2.Size = new System.Drawing.Size(75, 23);
             this.Susumubutton2.TabIndex = 2;
