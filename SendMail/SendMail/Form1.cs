@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace SendMail {
     public partial class Form1 : Form {
         private ConfigForm cf = new ConfigForm();
       //設定情報
         public Settings setting = Settings.getInstance();
+        private FileStream fs;
+        private SmtpClient settings;
+
         public Form1() {
             InitializeComponent();
          
@@ -30,9 +35,17 @@ namespace SendMail {
                //差出人アドレス
                 mailMessage.From = new MailAddress(setting.MailAdder);
                 //宛先()
-                mailMessage.To.Add(tbTo.Text);                
-                mailMessage.CC.Add(tbCc.Text);
-                mailMessage.Bcc.Add(tbBcc.Text);
+                mailMessage.To.Add(tbTo.Text);
+                if(tbCc.Text!="") {
+                    mailMessage.CC.Add(tbCc.Text);
+                } else{ 
+                   }
+                if(tbBcc.Text != "") {
+                    mailMessage.Bcc.Add(tbBcc.Text);
+                } else {
+                  
+                }
+                string fileName = @"C:\Users\infosys\source";
                 //件名(タイトル) 
                 mailMessage.Subject = tbTitle.Text;                         //32003@ojs.ac.jp
                 //本文
@@ -46,14 +59,31 @@ namespace SendMail {
                 smtpClient.Host = cf.setting.Host;
                 smtpClient.Port = cf.setting.Port;
                 smtpClient.EnableSsl =cf.setting.Ssl;
-                
-                
-                
-                //smtpClient.Port = 587;
-                //smtpClient.EnableSsl = true;
-                smtpClient.Send(mailMessage);
 
-                MessageBox.Show("送信完了");
+         //       System.Xml.Serialization.XmlSerializer serializer =
+         //new System.Xml.Serialization.XmlSerializer(typeof(SmtpClient));
+         //       //書き込むファイルを開く（UTF-8 BOM無し）
+         //       System.IO.StreamWriter sw = new System.IO.StreamWriter(
+         //           fileName, false, new System.Text.UTF8Encoding(false));
+         //       //シリアル化し、XMLファイルに保存する
+         //       serializer.Serialize(sw, setting);
+         //       //ファイルを閉じる
+         //       sw.Close();
+
+                //オブジェクトの型を指定する
+
+                // smtpClient.Send(mailMessage);
+                //送信完了時に呼ばれるイベントハンドラの登録
+                smtpClient.SendCompleted += SmtpClient_SendCompleted; 
+            //   smtpClient.SendCompleted += new SendCompletedEventHandler(SmtpClient_SendCompleted);    //古い書き方                                                        
+                string userState = "SendMail";
+                smtpClient.SendAsync(mailMessage,userState);
+
+
+
+
+
+               
             
             }
             catch(Exception ex) {
@@ -66,6 +96,15 @@ namespace SendMail {
 
 
 
+        }
+        //送信が完了すると呼ばれるコールバックめぞっど
+        private void SmtpClient_SendCompleted(object sender, AsyncCompletedEventArgs e) {
+            if(e.Error != null) {
+                MessageBox.Show(e.Error.Message);
+            } else {
+                MessageBox.Show("送信完了");
+            }
+          
         }
 
         private void btConfig_Click(object sender, EventArgs e) {
