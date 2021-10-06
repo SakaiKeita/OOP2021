@@ -187,7 +187,13 @@ namespace CarReportSystem {
                         //逆シリアル化して読み込む
                         listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
                         dgvRegistDate.DataSource = null;
-                        dgvRegistDate.DataSource = listCarReport;
+                    dgvRegistDate.DataSource = listCarReport;
+                   
+                    
+                    
+                    
+                    
+                    
                     }
                     }
                 catch(Exception ex) {
@@ -215,6 +221,9 @@ namespace CarReportSystem {
             dgvRegistDate.Columns[5].Visible = false;
         }
 
+        private void tbPeport_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }
 

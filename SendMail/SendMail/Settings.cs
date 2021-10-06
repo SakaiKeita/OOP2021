@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace SendMail {
     public class Settings {
@@ -23,13 +25,20 @@ namespace SendMail {
 
         //インスタンスの取得
         public static Settings getInstance(){
+        
+            
+            
             if(instance == null) {
                 instance = new Settings();
 
             }
             return instance;
 }
-
+        
+     
+        
+        
+        
         //初期値
         public string sHost() {
 
@@ -58,9 +67,9 @@ namespace SendMail {
 
         }
 
+     
 
-
-
+        
 
 
 

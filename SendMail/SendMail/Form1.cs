@@ -7,9 +7,11 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace SendMail {
@@ -45,7 +47,7 @@ namespace SendMail {
                 } else {
                   
                 }
-                string fileName = @"C:\Users\infosys\source";
+              
                 //件名(タイトル) 
                 mailMessage.Subject = tbTitle.Text;                         //32003@ojs.ac.jp
                 //本文
@@ -60,31 +62,18 @@ namespace SendMail {
                 smtpClient.Port = cf.setting.Port;
                 smtpClient.EnableSsl =cf.setting.Ssl;
 
-         //       System.Xml.Serialization.XmlSerializer serializer =
-         //new System.Xml.Serialization.XmlSerializer(typeof(SmtpClient));
-         //       //書き込むファイルを開く（UTF-8 BOM無し）
-         //       System.IO.StreamWriter sw = new System.IO.StreamWriter(
-         //           fileName, false, new System.Text.UTF8Encoding(false));
-         //       //シリアル化し、XMLファイルに保存する
-         //       serializer.Serialize(sw, setting);
-         //       //ファイルを閉じる
-         //       sw.Close();
-
-                //オブジェクトの型を指定する
-
-                // smtpClient.Send(mailMessage);
+                smtpClient.Send(mailMessage);
                 //送信完了時に呼ばれるイベントハンドラの登録
                 smtpClient.SendCompleted += SmtpClient_SendCompleted; 
             //   smtpClient.SendCompleted += new SendCompletedEventHandler(SmtpClient_SendCompleted);    //古い書き方                                                        
+              
+
+
                 string userState = "SendMail";
-                smtpClient.SendAsync(mailMessage,userState);
-
-
-
-
-
-               
+                smtpClient.SendAsync(mailMessage, userState);
             
+                   
+
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -112,6 +101,19 @@ namespace SendMail {
 
 
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            using(var reader = XmlReader.Create("mailsetting.xml")) {
+                var serializer = new DataContractSerializer(typeof(Settings));
+                settings = serializer.ReadObject(reader) as Settings;              
+              
+              //  setting.Host = .Host;
+              //setting.MailAdder = novel.MailAdder;
+              //  setting.Pass = novel.Pass;
+              //  setting.Port = novel.Port;
+           
+            }
         }
     }
 }
