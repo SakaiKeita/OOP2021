@@ -20,7 +20,7 @@ namespace SendMail {
       //設定情報
         public Settings setting = Settings.getInstance();
         private FileStream fs;
-        private SmtpClient settings;
+      //  private SmtpClient set;
 
         public Form1() {
             InitializeComponent();
@@ -103,11 +103,16 @@ namespace SendMail {
 
         }
 
+        //逆シリアル化
         private void Form1_Load(object sender, EventArgs e) {
             using(var reader = XmlReader.Create("mailsetting.xml")) {
                 var serializer = new DataContractSerializer(typeof(Settings));
-                settings = serializer.ReadObject(reader) as Settings;              
-              
+                var  readSetting = serializer.ReadObject(reader) as Settings;
+                setting.Host = readSetting.Host;
+                setting.Port = readSetting.Port;
+                setting.MailAdder = readSetting.MailAdder;
+                setting.Pass = readSetting.Pass;
+                setting.Ssl = readSetting.Ssl;
               //  setting.Host = .Host;
               //setting.MailAdder = novel.MailAdder;
               //  setting.Pass = novel.Pass;

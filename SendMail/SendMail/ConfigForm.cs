@@ -43,7 +43,7 @@ namespace SendMail {
 
                 var serializer = new DataContractSerializer(setting.GetType());
                 serializer.WriteObject(writer,setting);
-
+                
 
             }
             this.Close();
@@ -99,6 +99,17 @@ namespace SendMail {
 
         
         }
-    }
-    }
 
+        private void ConfigForm_Load(object sender, EventArgs e) {
+
+
+            tbHost.Text = setting.Host;
+            tbPort.Text = setting.Port.ToString();
+            tbUserName.Text = setting.MailAdder;
+            tbPass.Text = setting.Pass;
+            cbSsl.Checked = setting.Ssl;
+            tbSender.Text = setting.MailAdder;
+
+        }
+    }
+}
