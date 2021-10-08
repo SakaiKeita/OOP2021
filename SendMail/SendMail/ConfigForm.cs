@@ -31,82 +31,63 @@ namespace SendMail {
         }
 
         private void btOK_Click(object sender, EventArgs e) {
-            SettingRegist();
-            //シリアル化
-            var xws = new XmlWriterSettings {
-                Encoding = new System.Text.UTF8Encoding(false),
-                Indent = true,
-                IndentChars = " ",
-            };
-
-            using(var writer = XmlWriter.Create("mailsetting.xml",xws)) {
-
-                var serializer = new DataContractSerializer(setting.GetType());
-                serializer.WriteObject(writer,setting);
-                
-
-            }
+            //   SettingRegist();
+            //setting.setSendConfig(tbHost.Text, int.Parse(tbPort.Text), tbUserName.Text, tbPass.Text, cbSsl.Checked,);
+            btApply_Click(sender, e);
             this.Close();
+
+
+
+          
+        
 
         }
 
-    
-          
-       
-            
+
+
+
+
 
         private void btCancel_Click(object sender, EventArgs e) {
             this.Close();
+
+
+
         }
 
 
-        private void SettingRegist() {
-            setting.Host = tbHost.Text;
-            setting.MailAdder = tbUserName.Text;
-            setting.Pass = tbPass.Text;
-            setting.Port = int.Parse(tbPort.Text);
-            setting.Ssl = cbSsl.Checked; ;
-            //シリアル化
-            var xws = new XmlWriterSettings {
-                Encoding = new System.Text.UTF8Encoding(false),
-                Indent = true,
-                IndentChars = " ",
-            };
-
-            using(var writer = XmlWriter.Create("mailsetting.xml", xws)) {
-
-                var serializer = new DataContractSerializer(setting.GetType());
-                serializer.WriteObject(writer, setting);
-
-
-            }
-            this.Close();
-
+        //private void SettingRegist() {
+        //    setting.Host = tbHost.Text;
+        //    setting.MailAdder = tbUserName.Text;
+        //    setting.Pass = tbPass.Text;
+        //    setting.Port = int.Parse(tbPort.Text);
+        //    setting.Ssl = cbSsl.Checked; ;
+    //}
 
 
        
-        }  
+        
 
         private void btApply_Click(object sender, EventArgs e) {
-            SettingRegist();
-            
-            
+            // SettingRegist();
+
+
             //setting.Host = tbHost.Text;
             //setting.MailAdder = tbUserName.Text;
             //setting.Pass = tbPass.Text;
             //setting.Port = int.Parse(tbPort.Text);
             //setting.Ssl = cbSsl.Checked; ;
+            setting.setSendConfig(tbHost.Text, int.Parse(tbPort.Text), tbUserName.Text, tbPass.Text, cbSsl.Checked);
 
-        
         }
 
         private void ConfigForm_Load(object sender, EventArgs e) {
 
 
             tbHost.Text = setting.Host;
-            tbPort.Text = setting.Port.ToString();
-            tbUserName.Text = setting.MailAdder;
+            tbPort.Text=setting.Port.ToString();
             tbPass.Text = setting.Pass;
+            tbUserName.Text = setting.MailAdder;
             cbSsl.Checked = setting.Ssl;
             tbSender.Text = setting.MailAdder;
 
