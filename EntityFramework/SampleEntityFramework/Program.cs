@@ -15,10 +15,10 @@ namespace SampleEntityFramework {
             //    db.Database.Log = sql => { Debug.Write(sql); };  
             //  Exercise13_1_1();
              // Exercise13_1_2_2();
-          //  Exercise13_1_2();
+           Exercise13_1_2();
              // Exercise13_1_3();
          //     Exercise13_1_4();
-             Exercise13_1_5();
+          //   Exercise13_1_5();
 
         }
 
@@ -27,7 +27,7 @@ namespace SampleEntityFramework {
                 var eiei = db.Books.Include(nameof(Author)).ToList();
                 foreach(var item in eiei) {
 
-                    Console.WriteLine($"{item.Title}{item.PublishedYear}{item.Author.Name}");
+                    Console.WriteLine($"{item.Title}{item.PublishedYear}{item.Author.Name}{item.Author.Birthday:yyyy/MM/dd}");
 
 
                 }
@@ -66,7 +66,6 @@ namespace SampleEntityFramework {
 
             }
 
-
         }
 
         private static void Exercise13_1_3() {
@@ -87,6 +86,7 @@ namespace SampleEntityFramework {
                     Title = "こころ",
                     PublishedYear = 1992,
                     Author = author1,
+               
                 };
                 db.Books.Add(book1);
 
