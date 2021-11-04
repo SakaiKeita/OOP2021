@@ -123,6 +123,15 @@ namespace SendMail {
             tbTitle.Clear();
             tbTo.Clear();
         }
+
+        private void Form1_Load_1(object sender, EventArgs e) {
+            if(!Settings.Set) {
+                ConfigForm.ShowDialog();
+
+            }
+
+
+        }
     }
 }
 

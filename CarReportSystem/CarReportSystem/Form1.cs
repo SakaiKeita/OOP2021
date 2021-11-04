@@ -214,6 +214,7 @@ namespace CarReportSystem {
         private void carReportDataGridView_SelectionChanged(object sender, EventArgs e) {
             if(carReportDataGridView.CurrentRow == null) return;
             try {
+                sseLabel.Text ="";
                 dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;//日付
                 cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString();//記録者
 
@@ -225,8 +226,12 @@ namespace CarReportSystem {
                 pbPicture.Image = ByteArrayToImage((byte[])carReportDataGridView.CurrentRow.Cells[6].Value);//画像
 
             }
-            catch(Exception) {
 
+            catch (InvalidCastException){
+                pbPicture.Image = null;
+            }
+            catch(Exception ex) {
+                sseLabel.Text = ex.Message;
                 pbPicture.Image = null;
             }
           //  dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;//日付
@@ -235,8 +240,11 @@ namespace CarReportSystem {
 
         // バイト配列をImageオブジェクトに変換
         public static Image ByteArrayToImage(byte[] b) {
-            ImageConverter imgconv = new ImageConverter();
-            Image img = (Image)imgconv.ConvertFrom(b);
+            Image img = null;
+            if(b.Length > 0) {
+                ImageConverter imgconv = new ImageConverter();
+                img = (Image)imgconv.ConvertFrom(b);
+            }
             return img;
         }
         // Imageオブジェクトをバイト配列に変換
