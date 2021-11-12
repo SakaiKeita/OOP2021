@@ -19,7 +19,7 @@ namespace SendMail {
         private ConfigForm cf = new ConfigForm();
         //設定情報
         public Settings setting = Settings.getInstance();
-        private FileStream fs;
+       // private FileStream fs;
         //  private SmtpClient set;
 
         public Form1() {

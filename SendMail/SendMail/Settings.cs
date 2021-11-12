@@ -42,7 +42,7 @@ namespace SendMail {
                     }
                 }
                 //ファイルがない場合
-                catch(FileNotFoundException ex) {
+                catch(FileNotFoundException ) {
                     Set = false;//データ設定                  
                 }
         
