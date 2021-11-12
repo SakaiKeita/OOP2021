@@ -12,6 +12,11 @@
     <Window.DataContext>
         <SampleUnitConverter:MainWindowViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <SolidColorBrush  x:Key="ButtonBrushKey" Color="Green"/>
+
+    </Window.Resources>
     
     <StackPanel Margin="4">
         <StackPanel Orientation="Horizontal">
@@ -24,9 +29,9 @@
 
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="40" Margin="4" Content="▲"
+            <Button Width="40" Margin="4" Content="▲" Background="{StaticResource ButtonBrushKey}"
                     Command="{Binding ImperialUnitToMetric}"/>
-            <Button Width="40" Margin="4" Content="▼"
+            <Button Width="40" Margin="4" Content="▼"  Background="{StaticResource ButtonBrushKey}"
                     Command="{Binding MetricToImperialUnit}"/>
 
         </StackPanel>
