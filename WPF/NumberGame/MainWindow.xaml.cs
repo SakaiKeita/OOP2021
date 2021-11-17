@@ -17,16 +17,16 @@ namespace NumberGame {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
+
     public partial class MainWindow : Window {
+                 Random rnd = new Random();
+        int r1 = 0;
+
         public MainWindow() {
 
 
-            Random rnd = new Random();
 
-            for(int j = 0; j < 10; j++) {
-                Console.Write("{0} ", rnd.Next(1, 25));
-            }
-            Console.WriteLine(Environment.TickCount);
+            r1 = rnd.Next(1, 26);
 
 
 
@@ -36,14 +36,24 @@ namespace NumberGame {
 
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e) {
-            Random rnd = new Random();
-            if(rnd.Next(1, 25) == 1) {
-                Button1.
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            Button btn = (Button)sender;
+            if(int.Parse(btn.Content.ToString()) == r1) {
+                Ransuu.Text = "正解";
             }
+            else if(int.Parse(btn.Content.ToString()) <r1){
+
+                Ransuu.Text = "小さい";
+            }
+            else { Ransuu.Text = "大きい"; }
+
+
+
 
 
         }
+
+
     }
 }
 
