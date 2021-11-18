@@ -133,10 +133,10 @@
                 Margin="1"
                 Grid.Column="5"
                 Grid.Row="5" Click="Button_Click"/>
-        <TextBlock x:Name="Ransuu" HorizontalAlignment="Left" Margin="0,71,0,-68" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock"
-                   VerticalAlignment="Top" Height="68" Grid.ColumnSpan="5" Width="579"/>
+        <TextBlock x:Name="Ransuu" HorizontalAlignment="Left" Margin="0,71,0,-68" Grid.Row="4" TextWrapping="Wrap"
+                   VerticalAlignment="Top" Height="68" Grid.ColumnSpan="5" Width="579"><Run Text="TextBlock"/></TextBlock>
 
-        
+
     </Grid>
 
 </Window>
