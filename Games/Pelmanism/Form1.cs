@@ -164,6 +164,7 @@ namespace Pelmanism {
 
             if(duration == 0) {
                 timer1.Stop();
+                labelGuidance.Text = "ゲームオーバー";
 
             } else if(duration > 0) {
                 duration--;
