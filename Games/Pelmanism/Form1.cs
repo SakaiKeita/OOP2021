@@ -18,11 +18,6 @@ namespace Pelmanism {
 
         public FormGame() {
 
-
-
-
-
-
             InitializeComponent();
         }
 
@@ -47,8 +42,6 @@ namespace Pelmanism {
                 cards[i + 1] = new Card(picture[j]);            
 
             }
-
-
         }
 
         private void FormGame_Load(object sender, EventArgs e) {
@@ -67,7 +60,6 @@ namespace Pelmanism {
                 playingCards[i].Location = new Point(offsetX + i % 8 * sizeW, offsetY + i / 8 * sizeH);//カードの位置
 
                 playingCards[i].Click += CardButtons_Click;
-
 
             }
             Controls.AddRange(playingCards);
@@ -105,8 +97,6 @@ namespace Pelmanism {
                 } else {
                     labelGuidance.Text = "カードは不一致です次のカードをめくってください";
 
-
-
                 }
                 //プレイヤーのカード情報をリセットする
                 player.Reset();
@@ -118,7 +108,6 @@ namespace Pelmanism {
                     buttonStart.Enabled = true;
 
                 }
-
 
             }
         }
@@ -139,7 +128,6 @@ namespace Pelmanism {
             return true;
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -155,7 +143,6 @@ namespace Pelmanism {
             if(cards[index1].Picture.Equals(cards[index2].Picture)) {
                 return true;
             } else
-
 
                 return false;
 
@@ -177,13 +164,8 @@ namespace Pelmanism {
             timer1.Interval = 1000;
             labelSec.Text = "スタート";
 
-
-
-
             //カードを混ぜる
             ShuffleCard(playingCards);
-
-
 
             //全部のカードを伏せる
             foreach(var card in playingCards) {
@@ -211,14 +193,8 @@ namespace Pelmanism {
                 playingCards[k].Picture = playingCards[i].Picture;
                 playingCards[i].Picture = tmp;
 
-            }
-        
-        
-        
+            }       
         }
-
-    
-
         private void timer1_Tick(object sender, EventArgs e) {
             gameSec++;
             labelSec.Text = gameSec + "秒経過";
