@@ -45,7 +45,7 @@ namespace Pelmanism {
 
         //カードの情報をリセット
         public void Reset() {
-            NowOpenCardIndex1 = NowOpenCardIndex1;
+            BeforeOpenCardIndex1 = NowOpenCardIndex1;
             BeforeOpenCardIndex2 = NowOpenCardIndex2;
             NowOpenCardIndex1 = -1;
             nowOpenCardIndex2 = -1;

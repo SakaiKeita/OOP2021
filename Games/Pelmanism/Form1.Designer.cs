@@ -36,9 +36,9 @@ namespace Pelmanism {
             this.labelSec.AutoSize = true;
             this.labelSec.Location = new System.Drawing.Point(12, 0);
             this.labelSec.Name = "labelSec";
-            this.labelSec.Size = new System.Drawing.Size(47, 12);
+            this.labelSec.Size = new System.Drawing.Size(53, 12);
             this.labelSec.TabIndex = 0;
-            this.labelSec.Text = "0秒経過";
+            this.labelSec.Text = "60秒以内";
             // 
             // labelGuidance
             // 
@@ -59,6 +59,7 @@ namespace Pelmanism {
             this.buttonStart.TabIndex = 2;
             this.buttonStart.Text = "スタート";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // timer1
             // 
