@@ -24,7 +24,6 @@ namespace SendMail {
 
         public Form1() {
             InitializeComponent();
-
         }
 
         private void btSend_Click(object sender, EventArgs e) {
