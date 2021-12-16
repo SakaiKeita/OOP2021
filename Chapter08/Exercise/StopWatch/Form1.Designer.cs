@@ -32,6 +32,7 @@ namespace StopWatch {
             this.lbtimer = new System.Windows.Forms.Label();
             this.tm = new System.Windows.Forms.Timer(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -98,11 +99,19 @@ namespace StopWatch {
             this.listBox1.Size = new System.Drawing.Size(120, 244);
             this.listBox1.TabIndex = 2;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(384, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 19);
+            this.textBox1.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 288);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lbtimer);
             this.Controls.Add(this.btlap);
@@ -113,6 +122,7 @@ namespace StopWatch {
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,6 +135,7 @@ namespace StopWatch {
         private System.Windows.Forms.Label lbtimer;
         private System.Windows.Forms.Timer tm;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

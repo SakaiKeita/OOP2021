@@ -26,7 +26,6 @@ namespace AddressBook {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.personDataGridView = new System.Windows.Forms.DataGridView();
-            this.btConnect = new System.Windows.Forms.Button();
             this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -34,6 +33,7 @@ namespace AddressBook {
             this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.infosys202101DataSet = new AddressBook.infosys202101DataSet();
+            this.btConnect = new System.Windows.Forms.Button();
             this.personTableAdapter = new AddressBook.infosys202101DataSetTableAdapters.PersonTableAdapter();
             this.tableAdapterManager = new AddressBook.infosys202101DataSetTableAdapters.TableAdapterManager();
             this.personTableAdapter1 = new AddressBook.infosys202101DataSetTableAdapters.PersonTableAdapter();
@@ -50,6 +50,7 @@ namespace AddressBook {
             this.tbMemo = new System.Windows.Forms.TextBox();
             this.btBirthday = new System.Windows.Forms.Button();
             this.dtpbt = new System.Windows.Forms.DateTimePicker();
+            this.personTableAdapter2 = new AddressBook.infosys202101DataSetTableAdapters.PersonTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.personDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202101DataSet)).BeginInit();
@@ -67,7 +68,7 @@ namespace AddressBook {
             this.telehomeDataGridViewTextBoxColumn,
             this.memoDataGridViewTextBoxColumn});
             this.personDataGridView.DataSource = this.personBindingSource;
-            this.personDataGridView.Location = new System.Drawing.Point(-4, 175);
+            this.personDataGridView.Location = new System.Drawing.Point(9, 156);
             this.personDataGridView.MultiSelect = false;
             this.personDataGridView.Name = "personDataGridView";
             this.personDataGridView.ReadOnly = true;
@@ -76,16 +77,6 @@ namespace AddressBook {
             this.personDataGridView.Size = new System.Drawing.Size(800, 224);
             this.personDataGridView.TabIndex = 1;
             this.personDataGridView.SelectionChanged += new System.EventHandler(this.personDataGridView_SelectionChanged);
-            // 
-            // btConnect
-            // 
-            this.btConnect.Location = new System.Drawing.Point(13, 428);
-            this.btConnect.Name = "btConnect";
-            this.btConnect.Size = new System.Drawing.Size(107, 26);
-            this.btConnect.TabIndex = 2;
-            this.btConnect.Text = "接続";
-            this.btConnect.UseVisualStyleBackColor = true;
-            this.btConnect.Click += new System.EventHandler(this.btConnect_Click);
             // 
             // noDataGridViewTextBoxColumn
             // 
@@ -132,6 +123,16 @@ namespace AddressBook {
             this.infosys202101DataSet.DataSetName = "infosys202101DataSet";
             this.infosys202101DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btConnect
+            // 
+            this.btConnect.Location = new System.Drawing.Point(13, 428);
+            this.btConnect.Name = "btConnect";
+            this.btConnect.Size = new System.Drawing.Size(107, 26);
+            this.btConnect.TabIndex = 2;
+            this.btConnect.Text = "接続";
+            this.btConnect.UseVisualStyleBackColor = true;
+            this.btConnect.Click += new System.EventHandler(this.btConnect_Click);
+            // 
             // personTableAdapter
             // 
             this.personTableAdapter.ClearBeforeFill = true;
@@ -148,7 +149,7 @@ namespace AddressBook {
             // 
             // btNameFillter
             // 
-            this.btNameFillter.Location = new System.Drawing.Point(270, 405);
+            this.btNameFillter.Location = new System.Drawing.Point(259, 415);
             this.btNameFillter.Name = "btNameFillter";
             this.btNameFillter.Size = new System.Drawing.Size(177, 83);
             this.btNameFillter.TabIndex = 3;
@@ -256,6 +257,10 @@ namespace AddressBook {
             this.dtpbt.Size = new System.Drawing.Size(200, 19);
             this.dtpbt.TabIndex = 15;
             // 
+            // personTableAdapter2
+            // 
+            this.personTableAdapter2.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -314,6 +319,7 @@ namespace AddressBook {
         private System.Windows.Forms.TextBox tbMemo;
         private System.Windows.Forms.Button btBirthday;
         private System.Windows.Forms.DateTimePicker dtpbt;
+        private infosys202101DataSetTableAdapters.PersonTableAdapter personTableAdapter2;
     }
 }
 

@@ -35,7 +35,7 @@ namespace AddressBook {
         private void btConnect_Click(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202101DataSet.Person' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.personTableAdapter.Fill(this.infosys202101DataSet.Person);
-
+            
 
 
 
@@ -76,5 +76,6 @@ namespace AddressBook {
         private void btBirthday_Click(object sender, EventArgs e) {
             this.personTableAdapter.FillByBirthday(this.infosys202101DataSet.Person, dtpbt.Text);
         }
+
     }
 }
